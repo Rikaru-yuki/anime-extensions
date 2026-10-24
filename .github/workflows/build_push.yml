@@ -66,7 +66,7 @@ jobs:
 
         # If any changes to lib/ caused on main branch, bump the extensions that use the modified lib.
       - name: Bump extensions that use a modified lib
-        if: steps.modified-libs.outputs.any_changed == 'true' && github.repository == 'Rikaru-yuki/anime-fonte-extensoes'
+        if: steps.modified-libs.outputs.any_changed == 'true' && github.repository == 'Rikaru-yuki/anime-fonte-extensions'
         env:
           COMMIT_MESSAGE: ${{ steps.set-env.outputs.LATEST_COMMIT_MESSAGE }}
         run: |
@@ -134,7 +134,7 @@ jobs:
 
       - name: Upload APKs (${{ matrix.chunk.number }})
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
-        if: github.repository == 'Rikaru-yuki/anime-fonte-extensoes'
+        if: github.repository == 'Rikaru-yuki/anime-fonte-extensions'
         with:
           name: "individual-apks-${{ matrix.chunk.number }}"
           path: "**/*.apk"
